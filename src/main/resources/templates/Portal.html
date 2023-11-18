@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Portal de Alumno y Docente</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+     <style>
+        body {
+            background-color: rgb(120, 226, 194);
+        }
+    </style>
+</head>
+<body>
+
+    
+            <div class="jumbotron text-center">
+             <h1 class="display-4">BIENVENIDOS</h1>
+              <p class="lead">¡Encuentra toda la información que necesitas aquí!</p>
+              <img src="https://png.pngtree.com/background/20230401/original/pngtree-school-classroom-desk-background-picture-image_2252872.jpg" class="img-fluid" alt="Imagen de fondo"width="600" height="600">
+          </div>
+
+    <div class="container">
+		
+        <div class="row"  >
+            <div class="col-md-6">
+				<img src="https://i.pinimg.com/474x/91/8d/29/918d29ce81c39e238e0ef66a3457bef0.jpg" alt="Imagen de alumno" class="img-fluid rounded-circle" width="400" height="400">
+                   <div class="card-body">
+                        <h5 class="card-title">Formulario de Alumno</h5>
+                        <p class="card-text">Completa el formulario para registrarte como alumno.</p>
+                        <a th:href="@{/formulario}" class="btn btn-primary" >Formulario de Alumno</a>
+                        <a th:href="@{/listado}" class="btn btn-primary" >Listado de alumno </a>
+					  
+                    </div>
+            </div>
+            </div>
+       
+            <div class="col-md-6">
+				<img src="https://img.freepik.com/vector-premium/profesores-dia-mundial-maestro-pie-junto-pizarra-aula-personajes-dibujos-animados_71593-1087.jpg" alt="Imagen de docente" class="img-fluid rounded-circle" width="400" height="400">
+                    <div class="card-body">
+                        <h5 class="card-title">Formulario de Docente</h5>
+                        <p class="card-text">Completa el formulario para registrarte como docente.</p>
+                        <a th:href="@{/FormularioDocente}" class="btn btn-primary">Formulario de Docente</a>
+                        <a th:href="@{/listadoDocente}" class="btn btn-primary">Listado de Docente</a>
+                    </div>
+                    
+                
+            </div>
+        </div>
+
+</body>
+</html>
+
+
+   
