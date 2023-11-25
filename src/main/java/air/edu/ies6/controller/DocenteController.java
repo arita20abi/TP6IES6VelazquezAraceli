@@ -2,14 +2,17 @@ package air.edu.ies6.controller;
 
 import java.time.LocalDate;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
 
 import air.edu.ies6.model.Docente;
 import air.edu.ies6.service.DocenteService;
@@ -31,9 +34,6 @@ public class DocenteController {
            return "indexDocente";
          }
 
-         
-        
-     
       @PostMapping("/guardarDocente")
       public String guardarDocente(Docente docente) {
      
@@ -69,16 +69,26 @@ public class DocenteController {
       	return modificaDocente;
  	    }
        
-       @PostMapping("/modificarDocente")
-       public ModelAndView  modificarUnDocente(@ModelAttribute ("docente") Docente docente ) {
-     	  
-     	  docenteService.guardarDocente(docente);
-     	  
-     	  ModelAndView modelView= new ModelAndView("listadoDocente");
-     	  
-     	  modelView.addObject("listadoDocente",docenteService.buscarTodosDocentes());
-     	  return modelView;
-       }
+       @GetMapping("/actualizaDocente/{dni}")
+       public ModelAndView actualizaDocente(String dni, @RequestParam String newDni) throws Exception  {
+           
+               // Encuentra el docente 
+               Docente docente = docenteService.encontrarUnDocente(dni);
+
+               // Modifica el DNI del docente
+               docente.setDni(newDni);
+
+               // Actualiza el docente en la base de datos
+               docenteService.actualizarDocente(docente);
+
+               // Devuelve el modelo
+               ModelAndView modificaDocente = new ModelAndView("index");
+               
+              modificaDocente.addObject(docente);
+               
+               return modificaDocente;
+           
+           }
 
 
       @GetMapping ({ "/indexDocente","/","/home"})

@@ -4,6 +4,7 @@ package air.edu.ies6.service;
 import java.util.List;
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import air.edu.ies6.Repository.DocenteRepository;
@@ -37,12 +38,18 @@ public class DocenteService {
        }
        
        
-  
-       
-       
-       public void modificaUnDocente (Docente docente) {
-    	   
+       public void actualizarDocente(Docente docente) throws Exception {
+       	
+           // Comprueba si el docente existe
+    	   Docente docenteEncontrado = docenteRepository.findById(docente.getDni()).orElse(null);
+           if (docenteEncontrado != null) {
+               // Actualiza el docente
+               docenteRepository.save(docente);
+               
+           }
        }
+       
+       
 
 	  public Docente encontrarUnDocente (String dni)throws Exception{
 		  return docenteRepository.findById(dni).orElseThrow(()-> new Exception  ("Alumno no encontrado "));

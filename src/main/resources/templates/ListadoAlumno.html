@@ -34,6 +34,8 @@
                     <td th:text="${alumno.numero}"></td>
                     <td th:text="${alumno.telefono}"></td>
                     <td th:text="${alumno.fechaNacimiento}"></td>
+                    <form action="/actualizaAlumno/12345678" method="get">
+  
                     
                     <td><a  type= "button" class="btn btn-danger"href="#" th:href="@{'/eliminarAlumno/'+${alumno.dni}}">ELIMINAR
 		                </a>

@@ -10,6 +10,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
 @Entity
+
 @Component
 public class Docente {
 	@Column

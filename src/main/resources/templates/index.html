@@ -15,7 +15,10 @@
   <div class="container bg-lightseagreen">
     <h1>Formulario de registro de estudiantes</h1>
     
+    
     <form th:object="${alumno}" th:action="@{/guardar}" method="post">
+    
+		
       <div class="form-group">
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre"  th:field="*{nombre}"class="form-control" required>
@@ -26,7 +29,7 @@
       </div>
       <div class="form-group">
         <label for="dni">DNI:</label>
-        <input type="number" id="dni" name="dni"  th:field="*{dni}"class="form-control" required>
+        <input type="number" id="dni" name="dni"  th:field="*{dni}"class="form-control" >
       </div>
            <div class="form-group">
                 <label for="barrio">Barrio:</label>
@@ -55,11 +58,12 @@
       
           <div class="form-group">
            <label for="estado">Estado:</label>
-           <input type="checkbox" id="estado" name="estado" class="form-control">
+           <input type="checkbox" id="estado" name="estado" th:field="*{estado}"class="form-control">
          </div>
         
             <button type="submit" class="btn btn-primary">Guardar</button>
         </form>
+        
     </div>
     <footer>
         <a href="/portal" <button type="button" class="btn btn-dark">volver al inicio</button>
